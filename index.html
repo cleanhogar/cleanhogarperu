@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clean Hogar Perú | Limpieza profesional de muebles, colchones y sillas</title>
+  <meta name="description" content="Clean Hogar Perú ofrece limpieza profesional de muebles, colchones, sillas y tapicería. Servicio a domicilio, productos seguros y atención por WhatsApp." />
+  <meta name="theme-color" content="#0088B8" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /*
+      CLEAN HOGAR PERÚ - ESQUEMA DE COLORES
+      Azul confianza:       #0088B8
+      Aqua limpieza:        #38D9FF
+      Azul noche:           #0B2545
+      Menta suave:          #DDFCF6
+      Fondo crema limpio:   #FFFDF8
+      Amarillo CTA:         #FFB703
+    */
+    :root {
+      --primary: #0088B8;
+      --primary-dark: #00698F;
+      --aqua: #38D9FF;
+      --navy: #0B2545;
+      --mint: #DDFCF6;
+      --cream: #FFFDF8;
+      --honey: #FFB703;
+      --ink: #102A43;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    .heading-font {
+      font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+      letter-spacing: -0.045em;
+    }
+
+    .brand-gradient {
+      background: linear-gradient(135deg, var(--primary), var(--aqua));
+    }
+
+    .hero-bg {
+      background:
+        linear-gradient(90deg, rgba(11,37,69,.92) 0%, rgba(11,37,69,.74) 42%, rgba(0,136,184,.22) 100%),
+        url('assets/images/hero-clean-hogar.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .soft-pattern {
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(0,136,184,.13) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+
+    .glass-card {
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,.65);
+    }
+
+    .service-card,
+    .step-card,
+    .benefit-card,
+    .testimonial-card {
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .service-card:hover,
+    .step-card:hover,
+    .benefit-card:hover,
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(11,37,69,.12);
+      border-color: rgba(0,136,184,.22);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--aqua));
+      color: white;
+      box-shadow: 0 14px 30px rgba(0,136,184,.25);
+    }
+
+    .btn-primary:hover { filter: brightness(.96); transform: translateY(-1px); }
+
+    .btn-honey {
+      background: var(--honey);
+      color: var(--navy);
+      box-shadow: 0 14px 30px rgba(255,183,3,.25);
+    }
+
+    .btn-honey:hover { filter: brightness(.97); transform: translateY(-1px); }
+
+    .nav-link { transition: color .2s ease; }
+    .nav-link:hover { color: var(--primary); }
+
+    .section-kicker {
+      color: var(--primary);
+      letter-spacing: .18em;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: .74rem;
+    }
+
+    .section-title {
+      font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      color: var(--navy);
+      line-height: 1.05;
+    }
+
+    .floating-whatsapp {
+      box-shadow: 0 18px 35px rgba(37,211,102,.32);
+    }
+
+    @media (max-width: 768px) {
+      .hero-bg { background-position: 62% center; }
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+    INSTRUCCIONES RÁPIDAS PARA ANDRÉ
+    1) Cambia las imágenes en assets/images/:
+       - hero-clean-hogar.jpg
+       - nosotros-clean-hogar.jpg
+       - galeria-1.jpg ... galeria-6.jpg
+       - testimonio-1.jpg ... testimonio-3.jpg
+    2) Cambia el logo en assets/logos/logo.png
+    3) Cambia el número de WhatsApp en el script final: WHATSAPP_NUMBER
+    4) Cambia precios y zonas de atención directamente en las tarjetas.
+  -->
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/92 backdrop-blur-xl border-b border-slate-200/70">
+    <nav class="max-w-7xl mx-auto px-5 md:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="#inicio" class="flex items-center gap-3" aria-label="Clean Hogar Perú - Inicio">
+          <img src="assets/logos/logo.png" alt="Clean Hogar Perú" class="h-12 w-auto max-w-[180px] object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="hidden items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl brand-gradient flex items-center justify-center shadow-lg">
+              <i class="fa-solid fa-spray-can-sparkles text-white text-xl"></i>
+            </div>
+            <div class="leading-none">
+              <div class="heading-font text-2xl font-extrabold text-[var(--navy)]">Clean Hogar</div>
+              <div class="text-[11px] tracking-[.23em] font-extrabold text-[var(--primary)] mt-1">PERÚ</div>
+            </div>
+          </div>
+        </a>
+
+        <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-700">
+          <a class="nav-link" href="#servicios">Servicios</a>
+          <a class="nav-link" href="#confianza">Confianza</a>
+          <a class="nav-link" href="#proceso">Proceso</a>
+          <a class="nav-link" href="#galeria">Resultados</a>
+          <a class="nav-link" href="#preguntas">Preguntas</a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-3">
+          <a href="mailto:cleanhogar.pe@gmail.com" class="text-sm font-semibold text-slate-600 hover:text-[var(--primary)]">
+            <i class="fa-regular fa-envelope mr-1"></i> cleanhogar.pe@gmail.com
+          </a>
+          <a href="#contacto" class="btn-primary inline-flex items-center gap-2 px-5 py-3 rounded-2xl font-bold text-sm transition">
+            Cotizar ahora
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+          </a>
+        </div>
+
+        <button id="mobile-menu-btn" class="lg:hidden w-11 h-11 rounded-2xl border border-slate-200 flex items-center justify-center text-[var(--navy)]" aria-label="Abrir menú">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+
+      <div id="mobile-menu" class="hidden lg:hidden pb-6">
+        <div class="flex flex-col gap-3 text-sm font-semibold text-slate-700 border-t border-slate-100 pt-5">
+          <a class="mobile-nav-link" href="#servicios">Servicios</a>
+          <a class="mobile-nav-link" href="#confianza">Confianza</a>
+          <a class="mobile-nav-link" href="#proceso">Proceso</a>
+          <a class="mobile-nav-link" href="#galeria">Resultados</a>
+          <a class="mobile-nav-link" href="#preguntas">Preguntas</a>
+          <a href="#contacto" class="btn-primary flex items-center justify-center gap-2 px-5 py-3 rounded-2xl font-bold mt-2">
+            Cotizar por WhatsApp <i class="fa-brands fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero-bg min-h-[680px] md:min-h-[720px] flex items-center relative overflow-hidden">
+    <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--cream)] to-transparent"></div>
+
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-20 relative z-10 w-full">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 bg-white/95 text-[var(--primary-dark)] px-4 py-2 rounded-full text-xs font-extrabold tracking-[.14em] uppercase shadow-lg">
+          <span class="w-2.5 h-2.5 rounded-full bg-[var(--honey)] animate-pulse"></span>
+          Limpieza a domicilio en Perú
+        </div>
+
+        <h1 class="heading-font text-white text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[.98] mt-6 mb-6">
+          Tu hogar limpio,<br>
+          <span class="text-[var(--aqua)]">seguro y fresco.</span>
+        </h1>
+
+        <p class="text-white/88 text-lg md:text-xl leading-relaxed max-w-2xl mb-8">
+          En <strong>Clean Hogar Perú</strong> lavamos muebles, colchones, sillas y tapicería con equipo profesional, atención cuidadosa y productos seguros para tu familia.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="#servicios" class="inline-flex justify-center items-center gap-3 bg-white text-[var(--navy)] px-7 py-4 rounded-3xl font-extrabold hover:bg-slate-100 transition shadow-xl">
+            Ver servicios
+            <i class="fa-solid fa-arrow-down"></i>
+          </a>
+          <a href="#contacto" class="btn-honey inline-flex justify-center items-center gap-3 px-7 py-4 rounded-3xl font-extrabold transition">
+            Solicitar cotización
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3 mt-10 max-w-xl">
+          <div class="glass-card rounded-3xl p-4 text-center">
+            <div class="text-2xl font-extrabold text-[var(--primary)]">24h</div>
+            <div class="text-xs text-slate-600 font-semibold">Respuesta rápida</div>
+          </div>
+          <div class="glass-card rounded-3xl p-4 text-center">
+            <div class="text-2xl font-extrabold text-[var(--primary)]">100%</div>
+            <div class="text-xs text-slate-600 font-semibold">A domicilio</div>
+          </div>
+          <div class="glass-card rounded-3xl p-4 text-center">
+            <div class="text-2xl font-extrabold text-[var(--primary)]"><i class="fa-solid fa-shield-heart"></i></div>
+            <div class="text-xs text-slate-600 font-semibold">Servicio confiable</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section id="confianza" class="relative -mt-10 z-20 max-w-7xl mx-auto px-5 md:px-8">
+    <div class="bg-white rounded-[2rem] shadow-2xl shadow-slate-900/10 border border-slate-100 p-5 md:p-7 grid md:grid-cols-4 gap-4">
+      <div class="flex gap-4 items-start">
+        <div class="w-12 h-12 rounded-2xl bg-[var(--mint)] text-[var(--primary)] flex items-center justify-center"><i class="fa-solid fa-user-check text-xl"></i></div>
+        <div><h3 class="font-extrabold text-[var(--navy)]">Personal de confianza</h3><p class="text-sm text-slate-600">Atención seria, puntual y respetuosa.</p></div>
+      </div>
+      <div class="flex gap-4 items-start">
+        <div class="w-12 h-12 rounded-2xl bg-[var(--mint)] text-[var(--primary)] flex items-center justify-center"><i class="fa-solid fa-spray-can-sparkles text-xl"></i></div>
+        <div><h3 class="font-extrabold text-[var(--navy)]">Limpieza profunda</h3><p class="text-sm text-slate-600">Extracción, desmanchado y desodorización.</p></div>
+      </div>
+      <div class="flex gap-4 items-start">
+        <div class="w-12 h-12 rounded-2xl bg-[var(--mint)] text-[var(--primary)] flex items-center justify-center"><i class="fa-solid fa-baby text-xl"></i></div>
+        <div><h3 class="font-extrabold text-[var(--navy)]">Productos seguros</h3><p class="text-sm text-slate-600">Pensado para hogares con niños y mascotas.</p></div>
+      </div>
+      <div class="flex gap-4 items-start">
+        <div class="w-12 h-12 rounded-2xl bg-[var(--mint)] text-[var(--primary)] flex items-center justify-center"><i class="fa-brands fa-whatsapp text-xl"></i></div>
+        <div><h3 class="font-extrabold text-[var(--navy)]">Cotización fácil</h3><p class="text-sm text-slate-600">Envía foto y distrito por WhatsApp.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="max-w-7xl mx-auto px-5 md:px-8 py-20">
+    <div class="grid lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-6 relative">
+        <div class="rounded-[2.5rem] overflow-hidden shadow-2xl shadow-slate-900/10 border-8 border-white">
+          <img src="assets/images/nosotros-clean-hogar.jpg" alt="Equipo de Clean Hogar realizando limpieza profesional" class="w-full h-[420px] object-cover" onerror="this.src='https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80';">
+        </div>
+        <div class="absolute -bottom-6 right-6 bg-white rounded-3xl p-5 shadow-xl border border-slate-100 max-w-[260px]">
+          <div class="text-[var(--primary)] text-3xl font-extrabold"><i class="fa-solid fa-house-circle-check"></i></div>
+          <p class="font-extrabold text-[var(--navy)] mt-2">Cuidamos tu hogar como si fuera nuestro.</p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6">
+        <div class="section-kicker mb-3">Quiénes somos</div>
+        <h2 class="section-title text-4xl md:text-5xl mb-6">Una limpieza profesional con sensación de hogar.</h2>
+        <div class="space-y-4 text-slate-600 leading-relaxed">
+          <p><strong class="text-[var(--navy)]">Clean Hogar Perú</strong> nace para ofrecer un servicio de limpieza especializado, moderno y confiable para familias que quieren recuperar la frescura de sus muebles, colchones y espacios favoritos.</p>
+          <p>Nuestro enfoque combina técnica, cuidado y seguridad: revisamos el tipo de tela, tratamos manchas, aspiramos en profundidad y usamos extracción para retirar suciedad, polvo y malos olores.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-3 mt-8">
+          <div class="bg-white rounded-3xl p-5 border border-slate-100"><i class="fa-solid fa-check text-[var(--primary)] mr-2"></i><span class="font-bold">Servicio a domicilio</span></div>
+          <div class="bg-white rounded-3xl p-5 border border-slate-100"><i class="fa-solid fa-check text-[var(--primary)] mr-2"></i><span class="font-bold">Atención por WhatsApp</span></div>
+          <div class="bg-white rounded-3xl p-5 border border-slate-100"><i class="fa-solid fa-check text-[var(--primary)] mr-2"></i><span class="font-bold">Ideal para familias</span></div>
+          <div class="bg-white rounded-3xl p-5 border border-slate-100"><i class="fa-solid fa-check text-[var(--primary)] mr-2"></i><span class="font-bold">Cotización clara</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="servicios" class="soft-pattern py-20">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="section-kicker mb-3">Servicios</div>
+        <h2 class="section-title text-4xl md:text-5xl">Limpieza profunda para lo que más usas cada día.</h2>
+        <p class="mt-4 text-slate-600 text-lg">Precios referenciales. La cotización final depende del tamaño, material, estado y ubicación.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="service-card bg-white rounded-[2rem] p-6 border border-slate-100 shadow-sm">
+          <div class="w-14 h-14 rounded-3xl brand-gradient text-white flex items-center justify-center mb-5"><i class="fa-solid fa-couch text-2xl"></i></div>
+          <h3 class="text-2xl heading-font font-extrabold text-[var(--navy)]">Lavado de muebles</h3>
+          <p class="text-slate-600 mt-2 mb-5">Sofás, sillones, poltronas y juegos de sala. Retiramos polvo, manchas y olores acumulados.</p>
+          <div class="flex items-end justify-between gap-3">
+            <div><span class="text-xs uppercase tracking-widest text-slate-400 font-bold">Desde</span><div class="text-2xl font-extrabold text-[var(--primary)]">S/ 90</div></div>
+            <a class="whatsapp-link px-4 py-3 rounded-2xl border border-[var(--primary)] text-[var(--primary)] font-bold hover:bg-[var(--primary)] hover:text-white transition" data-text="Hola Clean Hogar Perú, quiero cotizar lavado de muebles.">Cotizar</a>
+          </div>
+        </article>
+
+        <article class="service-card bg-white rounded-[2rem] p-6 border border-slate-100 shadow-sm">
+          <div class="w-14 h-14 rounded-3xl brand-gradient text-white flex items-center justify-center mb-5"><i class="fa-solid fa-bed text-2xl"></i></div>
+          <h3 class="text-2xl heading-font font-extrabold text-[var(--navy)]">Lavado de colchones</h3>
+          <p class="text-slate-600 mt-2 mb-5">Limpieza profunda para mejorar la higiene del descanso y reducir polvo, olores y suciedad visible.</p>
+          <div class="flex items-end justify-between gap-3">
+            <div><span class="text-xs uppercase tracking-widest text-slate-400 font-bold">Desde</span><div class="text-2xl font-extrabold text-[var(--primary)]">S/ 80</div></div>
+            <a class="whatsapp-link px-4 py-3 rounded-2xl border border-[var(--primary)] text-[var(--primary)] font-bold hover:bg-[var(--primary)] hover:text-white transition" data-text="Hola Clean Hogar Perú, quiero cotizar lavado de colchón.">Cotizar</a>
+          </div>
+        </article>
+
+        <article class="service-card bg-white rounded-[2rem] p-6 border border-slate-100 shadow-sm">
+          <div class="w-14 h-14 rounded-3xl brand-gradient text-white flex items-center justify-center mb-5"><i class="fa-solid fa-chair text-2xl"></i></div>
+          <h3 class="text-2xl heading-font font-extrabold text-[var(--navy)]">Lavado de sillas</h3>
+          <p class="text-slate-600 mt-2 mb-5">Sillas de comedor, oficina, espera y tapizadas. Ideal para hogares, oficinas y pequeños negocios.</p>
+          <div class="flex items-end justify-between gap-3">
+            <div><span class="text-xs uppercase tracking-widest text-slate-400 font-bold">Desde</span><div class="text-2xl font-extrabold text-[var(--primary)]">S/ 10</div></div>
+            <a class="whatsapp-link px-4 py-3 rounded-2xl border border-[var(--primary)] text-[var(--primary)] font-bold hover:bg-[var(--primary)] hover:text-white transition" data-text="Hola Clean Hogar Perú, quiero cotizar lavado de sillas.">Cotizar</a>
+          </div>
+        </article>
+
+        <article class="service-card bg-white rounded-[2rem] p-6 border border-slate-100 shadow-sm">
+          <div class="w-14 h-14 rounded-3xl brand-gradient text-white flex items-center justify-center mb-5"><i class="fa-solid fa-rug text-2xl"></i></div>
+          <h3 class="text-2xl heading-font font-extrabold text-[var(--navy)]">Tapicería y alfombras</h3>
+          <p class="text-slate-600 mt-2 mb-5">Cabeceras, puffs, cojines, alfombras pequeñas y superficies textiles del hogar.</p>
+          <div class="flex items-end justify-between gap-3">
+            <div><span class="text-xs uppercase tracking-widest text-slate-400 font-bold">Desde</span><div class="text-2xl font-extrabold text-[var(--primary)]">S/ 40</div></div>
+            <a class="whatsapp-link px-4 py-3 rounded-2xl border border-[var(--primary)] text-[var(--primary)] font-bold hover:bg-[var(--primary)] hover:text-white transition" data-text="Hola Clean Hogar Perú, quiero cotizar limpieza de tapicería o alfombra.">Cotizar</a>
+          </div>
+        </article>
+
+        <article class="service-card bg-white rounded-[2rem] p-6 border border-slate-100 shadow-sm">
+          <div class="w-14 h-14 rounded-3xl brand-gradient text-white flex items-center justify-center mb-5"><i class="fa-solid fa-paw text-2xl"></i></div>
+          <h3 class="text-2xl heading-font font-extrabold text-[var(--navy)]">Artículos de mascota</h3>
+          <p class="text-slate-600 mt-2 mb-5">Camas, mantas y accesorios. Ayudamos a reducir pelos, olores y suciedad acumulada.</p>
+          <div class="flex items-end justify-between gap-3">
+            <div><span class="text-xs uppercase tracking-widest text-slate-400 font-bold">Desde</span><div class="text-2xl font-extrabold text-[var(--primary)]">S/ 30</div></div>
+            <a class="whatsapp-link px-4 py-3 rounded-2xl border border-[var(--primary)] text-[var(--primary)] font-bold hover:bg-[var(--primary)] hover:text-white transition" data-text="Hola Clean Hogar Perú, quiero cotizar limpieza de artículos de mascota.">Cotizar</a>
+          </div>
+        </article>
+
+        <article class="service-card bg-[var(--navy)] rounded-[2rem] p-6 border border-slate-100 shadow-sm text-white relative overflow-hidden">
+          <div class="absolute -right-10 -top-10 w-40 h-40 bg-[var(--aqua)]/20 rounded-full blur-2xl"></div>
+          <div class="w-14 h-14 rounded-3xl bg-white/15 text-[var(--aqua)] flex items-center justify-center mb-5"><i class="fa-solid fa-box-open text-2xl"></i></div>
+          <h3 class="text-2xl heading-font font-extrabold">Paquetes hogar</h3>
+          <p class="text-white/75 mt-2 mb-5">Combina muebles, colchones y sillas en una sola visita para ahorrar tiempo y dinero.</p>
+          <a class="whatsapp-link inline-flex items-center gap-2 bg-[var(--honey)] text-[var(--navy)] px-5 py-3 rounded-2xl font-extrabold hover:brightness-95 transition" data-text="Hola Clean Hogar Perú, quiero cotizar un paquete de limpieza para mi hogar.">Armar paquete <i class="fa-brands fa-whatsapp"></i></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="proceso" class="max-w-7xl mx-auto px-5 md:px-8 py-20">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-10">
+      <div>
+        <div class="section-kicker mb-3">Método Clean Hogar</div>
+        <h2 class="section-title text-4xl md:text-5xl">Un proceso claro, limpio y profesional.</h2>
+      </div>
+      <p class="text-slate-600 max-w-xl">Seguimos una secuencia pensada para proteger las telas y conseguir una limpieza visible sin complicarte el día.</p>
+    </div>
+
+    <div class="grid md:grid-cols-5 gap-4">
+      <div class="step-card bg-white rounded-[1.8rem] p-6 border border-slate-100">
+        <div class="text-4xl font-extrabold text-[var(--primary)]">01</div>
+        <h3 class="font-extrabold text-[var(--navy)] mt-4">Evaluación</h3>
+        <p class="text-sm text-slate-600 mt-2">Revisamos tela, manchas y estado general.</p>
+      </div>
+      <div class="step-card bg-white rounded-[1.8rem] p-6 border border-slate-100">
+        <div class="text-4xl font-extrabold text-[var(--primary)]">02</div>
+        <h3 class="font-extrabold text-[var(--navy)] mt-4">Aspirado</h3>
+        <p class="text-sm text-slate-600 mt-2">Retiramos polvo, pelos y residuos superficiales.</p>
+      </div>
+      <div class="step-card bg-white rounded-[1.8rem] p-6 border border-slate-100">
+        <div class="text-4xl font-extrabold text-[var(--primary)]">03</div>
+        <h3 class="font-extrabold text-[var(--navy)] mt-4">Desmanchado</h3>
+        <p class="text-sm text-slate-600 mt-2">Tratamos zonas críticas con productos adecuados.</p>
+      </div>
+      <div class="step-card bg-white rounded-[1.8rem] p-6 border border-slate-100">
+        <div class="text-4xl font-extrabold text-[var(--primary)]">04</div>
+        <h3 class="font-extrabold text-[var(--navy)] mt-4">Extracción</h3>
+        <p class="text-sm text-slate-600 mt-2">Lavado con máquina de inyección y succión.</p>
+      </div>
+      <div class="step-card bg-white rounded-[1.8rem] p-6 border border-slate-100">
+        <div class="text-4xl font-extrabold text-[var(--primary)]">05</div>
+        <h3 class="font-extrabold text-[var(--navy)] mt-4">Secado</h3>
+        <p class="text-sm text-slate-600 mt-2">Orientamos para ventilación y uso seguro.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="bg-[var(--navy)] text-white py-20 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-20 soft-pattern"></div>
+    <div class="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="text-[var(--aqua)] uppercase tracking-[.18em] text-xs font-extrabold mb-3">Por qué elegirnos</div>
+        <h2 class="heading-font text-4xl md:text-5xl font-extrabold leading-tight">La diferencia está en la confianza.</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="benefit-card bg-white/9 border border-white/10 rounded-[2rem] p-7 backdrop-blur">
+          <i class="fa-solid fa-shield-halved text-[var(--aqua)] text-3xl"></i>
+          <h3 class="font-extrabold text-xl mt-5">Seguridad primero</h3>
+          <p class="text-white/70 text-sm mt-2">Servicio responsable para que te sientas tranquilo al recibirnos en casa.</p>
+        </div>
+        <div class="benefit-card bg-white/9 border border-white/10 rounded-[2rem] p-7 backdrop-blur">
+          <i class="fa-solid fa-leaf text-[var(--aqua)] text-3xl"></i>
+          <h3 class="font-extrabold text-xl mt-5">Productos adecuados</h3>
+          <p class="text-white/70 text-sm mt-2">Seleccionamos productos según el material y el tipo de limpieza requerida.</p>
+        </div>
+        <div class="benefit-card bg-white/9 border border-white/10 rounded-[2rem] p-7 backdrop-blur">
+          <i class="fa-solid fa-camera text-[var(--aqua)] text-3xl"></i>
+          <h3 class="font-extrabold text-xl mt-5">Antes y después</h3>
+          <p class="text-white/70 text-sm mt-2">Puedes solicitar fotos o video breve del resultado del servicio.</p>
+        </div>
+        <div class="benefit-card bg-white/9 border border-white/10 rounded-[2rem] p-7 backdrop-blur">
+          <i class="fa-solid fa-calendar-check text-[var(--aqua)] text-3xl"></i>
+          <h3 class="font-extrabold text-xl mt-5">Agenda flexible</h3>
+          <p class="text-white/70 text-sm mt-2">Coordinamos el servicio según zona, disponibilidad y urgencia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="galeria" class="max-w-7xl mx-auto px-5 md:px-8 py-20">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+      <div>
+        <div class="section-kicker mb-3">Resultados</div>
+        <h2 class="section-title text-4xl md:text-5xl">Galería de trabajos</h2>
+      </div>
+      <a class="whatsapp-link text-[var(--primary)] font-extrabold inline-flex items-center gap-2" data-text="Hola Clean Hogar Perú, quiero ver más fotos de trabajos realizados.">Pedir más fotos <i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+      <img src="assets/images/galeria-1.jpg" class="gallery-img aspect-[4/3] w-full object-cover rounded-3xl cursor-pointer hover:scale-[1.02] transition" alt="Resultado de limpieza de sofá" onerror="this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80';">
+      <img src="assets/images/galeria-2.jpg" class="gallery-img aspect-[4/3] w-full object-cover rounded-3xl cursor-pointer hover:scale-[1.02] transition" alt="Limpieza de colchón" onerror="this.src='https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80';">
+      <img src="assets/images/galeria-3.jpg" class="gallery-img aspect-[4/3] w-full object-cover rounded-3xl cursor-pointer hover:scale-[1.02] transition" alt="Lavado de sillas" onerror="this.src='https://images.unsplash.com/photo-1540638349517-3abd5afc5847?w=800&q=80';">
+      <img src="assets/images/galeria-4.jpg" class="gallery-img aspect-[4/3] w-full object-cover rounded-3xl cursor-pointer hover:scale-[1.02] transition" alt="Limpieza de sala" onerror="this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80';">
+      <img src="assets/images/galeria-5.jpg" class="gallery-img aspect-[4/3] w-full object-cover rounded-3xl cursor-pointer hover:scale-[1.02] transition" alt="Tapicería limpia" onerror="this.src='https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80';">
+      <img src="assets/images/galeria-6.jpg" class="gallery-img aspect-[4/3] w-full object-cover rounded-3xl cursor-pointer hover:scale-[1.02] transition" alt="Servicio de limpieza profesional" onerror="this.src='https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80';">
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="bg-white py-20 border-y border-slate-100">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="section-kicker mb-3">Clientes felices</div>
+        <h2 class="section-title text-4xl md:text-5xl">Opiniones que construyen confianza</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <article class="testimonial-card bg-[var(--cream)] rounded-[2rem] p-7 border border-slate-100">
+          <div class="text-[var(--honey)] mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="text-slate-600">“El sofá quedó con otro olor y se notó bastante el cambio. Muy puntuales y cuidadosos.”</p>
+          <div class="font-extrabold text-[var(--navy)] mt-5">Cliente verificado</div>
+        </article>
+        <article class="testimonial-card bg-[var(--cream)] rounded-[2rem] p-7 border border-slate-100">
+          <div class="text-[var(--honey)] mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="text-slate-600">“Pedí limpieza de colchón y sillas. Me explicaron todo y el resultado fue muy bueno.”</p>
+          <div class="font-extrabold text-[var(--navy)] mt-5">Cliente verificado</div>
+        </article>
+        <article class="testimonial-card bg-[var(--cream)] rounded-[2rem] p-7 border border-slate-100">
+          <div class="text-[var(--honey)] mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="text-slate-600">“Buena comunicación por WhatsApp, precio claro y buen trato. Lo recomendaría.”</p>
+          <div class="font-extrabold text-[var(--navy)] mt-5">Cliente verificado</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="preguntas" class="max-w-4xl mx-auto px-5 md:px-8 py-20">
+    <div class="text-center mb-10">
+      <div class="section-kicker mb-3">Preguntas frecuentes</div>
+      <h2 class="section-title text-4xl md:text-5xl">Antes de reservar</h2>
+    </div>
+
+    <div class="space-y-3">
+      <div class="faq-item bg-white border border-slate-100 rounded-3xl overflow-hidden">
+        <button class="faq-btn w-full p-6 text-left flex items-center justify-between gap-5 font-extrabold text-[var(--navy)]">
+          ¿Cuánto demora el servicio?
+          <i class="fa-solid fa-plus text-[var(--primary)]"></i>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6 text-slate-600">Depende del tamaño y estado. Un sofá o colchón puede tomar entre 1 y 3 horas. Al cotizar te damos una estimación más exacta.</div>
+      </div>
+      <div class="faq-item bg-white border border-slate-100 rounded-3xl overflow-hidden">
+        <button class="faq-btn w-full p-6 text-left flex items-center justify-between gap-5 font-extrabold text-[var(--navy)]">
+          ¿Los muebles quedan secos el mismo día?
+          <i class="fa-solid fa-plus text-[var(--primary)]"></i>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6 text-slate-600">Normalmente quedan ligeramente húmedos y terminan de secar con ventilación. El tiempo final depende del material, clima y ventilación del ambiente.</div>
+      </div>
+      <div class="faq-item bg-white border border-slate-100 rounded-3xl overflow-hidden">
+        <button class="faq-btn w-full p-6 text-left flex items-center justify-between gap-5 font-extrabold text-[var(--navy)]">
+          ¿Qué necesito enviar para cotizar?
+          <i class="fa-solid fa-plus text-[var(--primary)]"></i>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6 text-slate-600">Una foto del mueble, colchón o silla, la cantidad, tu distrito y si hay manchas específicas. Con eso podemos darte una cotización más clara.</div>
+      </div>
+      <div class="faq-item bg-white border border-slate-100 rounded-3xl overflow-hidden">
+        <button class="faq-btn w-full p-6 text-left flex items-center justify-between gap-5 font-extrabold text-[var(--navy)]">
+          ¿Atienden empresas u oficinas?
+          <i class="fa-solid fa-plus text-[var(--primary)]"></i>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6 text-slate-600">Sí. Podemos cotizar limpieza de sillas, salas de espera, muebles de oficina y paquetes por volumen.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA CONTACT -->
+  <section id="contacto" class="max-w-7xl mx-auto px-5 md:px-8 pb-20">
+    <div class="rounded-[3rem] brand-gradient p-7 md:p-12 text-white overflow-hidden relative">
+      <div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-white/15 blur-3xl"></div>
+      <div class="grid lg:grid-cols-12 gap-8 items-center relative z-10">
+        <div class="lg:col-span-7">
+          <div class="uppercase tracking-[.18em] text-xs font-extrabold text-white/75 mb-3">Cotización rápida</div>
+          <h2 class="heading-font text-4xl md:text-5xl font-extrabold leading-tight">Cuéntanos qué necesitas limpiar y te respondemos por WhatsApp.</h2>
+          <p class="text-white/85 mt-4 text-lg">Envía fotos, cantidad de piezas y zona de atención. Te ayudamos a elegir el servicio adecuado.</p>
+        </div>
+
+        <form id="quote-form" class="lg:col-span-5 bg-white/18 border border-white/25 backdrop-blur rounded-[2rem] p-5">
+          <label class="block text-xs font-bold uppercase tracking-widest text-white/75 mb-1">Nombre</label>
+          <input id="form-name" required class="w-full rounded-2xl px-4 py-3 text-[var(--navy)] outline-none focus:ring-4 focus:ring-white/25" placeholder="Tu nombre">
+
+          <label class="block text-xs font-bold uppercase tracking-widest text-white/75 mt-4 mb-1">Servicio</label>
+          <select id="form-service" class="w-full rounded-2xl px-4 py-3 text-[var(--navy)] outline-none focus:ring-4 focus:ring-white/25">
+            <option>Lavado de muebles</option>
+            <option>Lavado de colchones</option>
+            <option>Lavado de sillas</option>
+            <option>Tapicería / alfombras</option>
+            <option>Artículos de mascota</option>
+            <option>Paquete hogar</option>
+          </select>
+
+          <label class="block text-xs font-bold uppercase tracking-widest text-white/75 mt-4 mb-1">Distrito o zona</label>
+          <input id="form-zone" class="w-full rounded-2xl px-4 py-3 text-[var(--navy)] outline-none focus:ring-4 focus:ring-white/25" placeholder="Ej. Miraflores, Surco, Cusco...">
+
+          <button type="submit" class="btn-honey w-full mt-5 py-4 rounded-2xl font-extrabold flex items-center justify-center gap-2 transition">
+            Enviar por WhatsApp <i class="fa-brands fa-whatsapp text-xl"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[var(--navy)] text-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-12">
+      <div class="grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-5">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-2xl brand-gradient flex items-center justify-center"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+            <div>
+              <div class="heading-font text-2xl font-extrabold">Clean Hogar</div>
+              <div class="text-xs tracking-[.22em] text-[var(--aqua)] font-extrabold">PERÚ</div>
+            </div>
+          </div>
+          <p class="text-white/65 max-w-sm">Limpieza profesional de muebles, colchones, sillas y tapicería. Servicio a domicilio con enfoque en confianza, cuidado y resultados.</p>
+        </div>
+
+        <div class="md:col-span-3">
+          <h3 class="font-extrabold mb-4">Servicios</h3>
+          <div class="space-y-2 text-white/65 text-sm">
+            <div>Lavado de muebles</div>
+            <div>Lavado de colchones</div>
+            <div>Lavado de sillas</div>
+            <div>Tapicería y alfombras</div>
+          </div>
+        </div>
+
+        <div class="md:col-span-4">
+          <h3 class="font-extrabold mb-4">Contacto</h3>
+          <div class="space-y-3 text-white/72 text-sm">
+            <a href="mailto:cleanhogar.pe@gmail.com" class="flex items-center gap-3 hover:text-white"><i class="fa-regular fa-envelope w-4"></i> cleanhogar.pe@gmail.com</a>
+            <a class="whatsapp-link flex items-center gap-3 hover:text-white" data-text="Hola Clean Hogar Perú, quiero información sobre sus servicios."><i class="fa-brands fa-whatsapp w-4"></i> WhatsApp</a>
+            <div class="flex items-center gap-3"><i class="fa-solid fa-location-dot w-4"></i> Perú</div>
+            <div class="flex items-center gap-3"><i class="fa-brands fa-instagram w-4"></i> @cleanhogarperu</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between gap-3 text-xs text-white/45">
+        <div>© 2026 Clean Hogar Perú. Todos los derechos reservados.</div>
+        <div>Diseñado para captar clientes por WhatsApp e Instagram.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a class="whatsapp-link floating-whatsapp fixed bottom-5 right-5 z-50 w-16 h-16 rounded-full bg-[#25D366] text-white flex items-center justify-center hover:scale-105 transition" data-text="Hola Clean Hogar Perú, quiero una cotización." aria-label="Contactar por WhatsApp">
+    <i class="fa-brands fa-whatsapp text-4xl"></i>
+  </a>
+
+  <!-- IMAGE MODAL -->
+  <div id="image-modal" class="hidden fixed inset-0 z-[100] bg-black/90 p-4 items-center justify-center">
+    <button id="close-modal" class="absolute top-5 right-5 w-12 h-12 rounded-full bg-white text-[var(--navy)] flex items-center justify-center text-2xl"><i class="fa-solid fa-xmark"></i></button>
+    <img id="modal-image" src="" alt="Imagen ampliada" class="max-w-full max-h-[90vh] rounded-3xl object-contain">
+  </div>
+
+  <script>
+    // CAMBIAR AQUÍ: reemplaza por el número real de WhatsApp en formato internacional, sin + ni espacios.
+    // Ejemplo Perú: 51987654321
+    const WHATSAPP_NUMBER = '51999999999';
+
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileBtn.innerHTML = mobileMenu.classList.contains('hidden')
+        ? '<i class="fa-solid fa-bars text-xl"></i>'
+        : '<i class="fa-solid fa-xmark text-xl"></i>';
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+      });
+    });
+
+    function openWhatsApp(message) {
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank', 'noopener');
+    }
+
+    document.querySelectorAll('.whatsapp-link').forEach(link => {
+      link.setAttribute('href', '#contacto');
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const msg = link.dataset.text || 'Hola Clean Hogar Perú, quiero información.';
+        openWhatsApp(msg);
+      });
+    });
+
+    document.getElementById('quote-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value.trim();
+      const service = document.getElementById('form-service').value;
+      const zone = document.getElementById('form-zone').value.trim();
+      const message = `Hola Clean Hogar Perú, quiero una cotización.\n\nNombre: ${name}\nServicio: ${service}\nZona: ${zone || 'Por confirmar'}\n\nPuedo enviar fotos para una cotización más exacta.`;
+      openWhatsApp(message);
+      e.target.reset();
+    });
+
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const icon = btn.querySelector('i');
+        answer.classList.toggle('hidden');
+        icon.classList.toggle('fa-plus');
+        icon.classList.toggle('fa-minus');
+      });
+    });
+
+    const modal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const closeModal = document.getElementById('close-modal');
+
+    document.querySelectorAll('.gallery-img').forEach(img => {
+      img.addEventListener('click', () => {
+        modalImage.src = img.src;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function hideModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      modalImage.src = '';
+      document.body.style.overflow = '';
+    }
+
+    closeModal?.addEventListener('click', hideModal);
+    modal?.addEventListener('click', (e) => { if (e.target === modal) hideModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideModal(); });
+  </script>
+</body>
+</html>
