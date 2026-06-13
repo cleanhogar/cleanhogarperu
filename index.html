@@ -126,7 +126,19 @@
       box-shadow: 0 18px 35px rgba(37,211,102,.32);
     }
 
+    .site-logo {
+      height: 58px;
+      width: auto;
+      max-width: 230px;
+      display: block;
+      object-fit: contain;
+    }
+
     @media (max-width: 768px) {
+      .site-logo {
+        height: 50px;
+        max-width: 205px;
+      }
       .hero-bg { background-position: 62% center; }
     }
   </style>
@@ -140,7 +152,7 @@
        - nosotros-clean-hogar.jpg
        - galeria-1.jpg ... galeria-6.jpg
        - testimonio-1.jpg ... testimonio-3.jpg
-    2) Cambia el logo en assets/logos/logo.png
+    2) Coloca el logo principal como LogoCleanHogar.png en la misma carpeta que index.html
     3) Cambia el número de WhatsApp en el script final: WHATSAPP_NUMBER
     4) Cambia precios y zonas de atención directamente en las tarjetas.
   -->
@@ -150,16 +162,7 @@
     <nav class="max-w-7xl mx-auto px-5 md:px-8">
       <div class="flex items-center justify-between h-20">
         <a href="#inicio" class="flex items-center gap-3" aria-label="Clean Hogar Perú - Inicio">
-          <img src="assets/logos/logo.png" alt="Clean Hogar Perú" class="h-12 w-auto max-w-[180px] object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="hidden items-center gap-3">
-            <div class="w-12 h-12 rounded-2xl brand-gradient flex items-center justify-center shadow-lg">
-              <i class="fa-solid fa-spray-can-sparkles text-white text-xl"></i>
-            </div>
-            <div class="leading-none">
-              <div class="heading-font text-2xl font-extrabold text-[var(--navy)]">Clean Hogar</div>
-              <div class="text-[11px] tracking-[.23em] font-extrabold text-[var(--primary)] mt-1">PERÚ</div>
-            </div>
-          </div>
+          <img src="LogoCleanHogar.png" alt="Clean Hogar Perú" class="site-logo">
         </a>
 
         <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-700">
